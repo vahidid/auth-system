@@ -10,6 +10,8 @@ class AdminController extends Controller
 {
     use AuthenticatesUsers;
 
+    protected $redirectTo = '/admin';
+
     protected function guard()
     {
         return Auth::guard('admin');
