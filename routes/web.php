@@ -17,7 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+\Illuminate\Support\Facades\Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+
+Route::get('/admin/login', 'AdminController@showLoginForm')->name('admin.view_login');
+Route::post('/admin/login', 'AdminController@login')->name('admin.login');
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
